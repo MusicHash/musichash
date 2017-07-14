@@ -4,7 +4,8 @@
 
 
 # Live Demo
-[](http://musichash.com)
+[http://musichash.com](http://musichash.com)
+[http://mhash.mooo.com](http://mhash.mooo.com)
 
 
 ## What is MusicHash?
@@ -14,8 +15,8 @@ Project was built on October 2015, for my personal use and I've been using it si
 
 
 ### Libs used
-  * Laravel
-  * Angular 1
+  * Laravel v5
+  * Angular v1
   * Matirial design
   * Webpack / Gulp etc.
 
