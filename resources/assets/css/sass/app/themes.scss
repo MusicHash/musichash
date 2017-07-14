@@ -1,0 +1,38 @@
+//== Theme colors
+$theme-colors: (
+  "red": $red,
+  "pink": $pink,
+  "black": $black
+);
+
+$theme-secondary-colors: (
+  "red": "red",
+  "pink": "blue",
+  "black": "red",
+);
+
+
+.theme-template-default {}
+
+.theme-template-dark {
+    background-color: black;
+}
+
+.theme-template-light {
+    background-color: white;
+    
+    .navbar {
+        background-color: black;
+    }
+}
+
+@each $color-name, $c in $theme-colors {
+  .theme-#{$color-name} {
+    @each $color-type, $color-value in map-get($colors, $color-name) {
+      @include theme-colors($color-value, true, $color-type);
+    }
+    @each $color-type, $color-value in map-get($colors, map-get($theme-secondary-colors, $color-name)) {
+      @include theme-colors($color-value, false, $color-type);
+    }
+  }
+}

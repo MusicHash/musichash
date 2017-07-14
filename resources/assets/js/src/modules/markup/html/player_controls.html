@@ -1,0 +1,16 @@
+<ul>
+    <li class="controls-previous">
+        <button class="btn btn-link btn-round btn-xs m-r-10" ng-click="previous()"><i class="zmdi zmdi-skip-previous"></i></button>
+    </li>
+    
+    <li class="controls-toggle">
+        <button class="cont-toggle btn btn-primary btn-round btn-xs m-r-10" ng-click="toggle()">
+            <i class="zmdi zmdi-stop" ng-if="playing"></i>
+            <i class="zmdi zmdi-play" ng-if="!playing"></i>
+        </button>
+    </li>
+    
+    <li class="controls-next">
+        <button class="btn btn-link btn-round btn-xs m-r-10" ng-click="next()"><i class="zmdi zmdi-skip-next"></i></button>
+    </li>
+</ul>

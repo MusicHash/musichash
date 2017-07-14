@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-class="{'full-page-map': isFullPageMap}">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    
+    <title ng-bind="pageTitle + ' - App'">Loading... - App</title>
+    
+    <link href="assets/css/vendors.css" rel="stylesheet" />
+    <link href="assets/css/app.css" rel="stylesheet" />
+    
+    <script charset="utf-8" src="assets/js/vendor.bundle.js"></script>
+    <script charset="utf-8" src="assets/js/musichash.js"></script>
+</head>
+
+<body ng-controller="MainController" scroll-spy id="top" ng-class="[theme.template, theme.color]">
+    <main>
+        <div ng-include src="'assets/html/layout/topnav.html'"></div>
+        <div ng-include src="'assets/html/layout/header.html'"></div>
+        <div class="main-content" autoscroll="true" ng-cloak ng-view bs-affix-target init-ripples></div>
+        <div ng-include src="'assets/html/layout/tranding.html'"></div>
+        <div ng-include src="'assets/html/layout/footer.html'"></div>
+    </main>
+    
+    <div class="alert-container-top-right"></div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<section class="top-chart" ng-controller="TopChartController">
+    <div class="container">
+        <section>
+          <div class="page-header">
+            <div class="actions">
+              <button type="button" class="btn btn-link btn-round-sm theme-secondary-text"><span class="zmdi zmdi-info-outline"></span></button>
+              <button type="button" class="btn btn-link btn-round-sm theme-secondary-text"><span class="zmdi zmdi-search"></span></button>
+            </div>
+            
+            <h1>
+              <i class="zmdi zmdi-play"></i> {{ category.replace('-', ' ') }}
+            </h1>
+            
+            <p class="lead">
+              All charts then from BP and streamed directly from Youtube by a smart match for the track clicked.
+              <u>This application is under development and still a beta app</u>.
+            </p>
+          </div>
+          
+        </section>
+        
+        <div>
+            <div class="table-responsive well no-padding white no-margin">
+              <h3 class="table-title">Top {{tracks.length}} {{settings.plural}}</h3>
+        
+              <table class="table table-full m-b-60" id="table-area-1" fsm-big-data="tracks of tracks take 30">
+                <thead>
+                    <tr fsm-sticky-header scroll-body="'#table-area-1'" scroll-stop="64">
+                      <th title="Play All"><input type="checkbox" class="relative" ng-model="selectAll" ng-click="checkAll()" /></th>
+                      <th title="#" class="rank">#</th>
+                      <th title="Thumbnail" class="thumb"></th>
+                      <th title="Track" class="track">Track</th>
+                      <th class="text-right">Actions</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                  <tr ng-class="{current: index === idx}" ng-repeat="(index, track) in tracks" ng-click="track.selected=!track.selected" ng-dblclick="playTrack(idx)">
+                    <td><input type="checkbox" class="relative" ng-model="track.selected" ng-click="$event.stopPropagation()" /></td>
+                    <td class="rank">{{ index+1 }}</td>
+                    <td class="thumb"><img src="{{ track.image.replace('{hq}', '_hq').replace('{w}', '50').replace('{h}', '50') }}" alt="{{ track.artist }} - {{ track.title }}" /></td>
+                    <td class="track">
+                        {{ track.title }} <span>({{ track.duration }})</span><br />
+                        <strong>{{ track.artist }}</strong>
+                    </td>
+                    
+                    <td class="text-right" ng-click="$event.stopPropagation()">
+                      <button type="button" class="btn btn-link btn-round" data-title="Play Track" ng-click="playTrack(index)"><i class="zmdi zmdi-play"></i></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          <div class="footer-buttons">
+            <div class="btn btn-primary btn-round btn-lg m-r-10 btn-footer" ng-show="(tracks|filter:{selected: true}).length" ng-click="play()" data-title="Play {{(tracks|filter:{selected: true}).length}} tracks(s)" bs-tooltip><i class="zmdi zmdi-play"></i></div>
+            <div class="btn btn-default btn-round btn-lg m-r-10 btn-footer" scroll-to="top" ng-hide="scroll<100" data-title="Scroll to top" bs-tooltip><i class="zmdi zmdi-caret-up"></i></div>
+            <div class="btn btn-primary btn-round btn-lg" ng-click="playAll()" data-title="Play All {{settings.plural}}" bs-tooltip><i class="zmdi zmdi-play-circle"></i></div>
+          </div>
+          
+        </div>
+    </div>
+</section>
