@@ -4,8 +4,8 @@
 
 
 # Live Demo
-[http://musichash.com](http://musichash.com)
-[http://mhash.mooo.com](http://mhash.mooo.com)
+ * [http://musichash.com](http://musichash.com)
+ * [http://mhash.mooo.com](http://mhash.mooo.com)
 
 
 ## What is MusicHash?
